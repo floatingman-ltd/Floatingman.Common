@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using Floatingman.Common;
 using FluentAssertions;
+using Floatingman.Common.Extensions;
 
 namespace Floatingman.Common.Tests
 {
