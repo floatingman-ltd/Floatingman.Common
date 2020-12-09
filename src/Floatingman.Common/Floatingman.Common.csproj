@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>Floatingman.Common</PackageId>
+    <Version>0.0.2</Version>
+    <Authors>Walt Speelman</Authors>
+    <Company>Floatingman</Company>
+    <CopyRight>(c) 2020 Floatingman IT Consulting</CopyRight>
+    <PackageLicenseExpression>WTFPL</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/64-Code-Amusements/Floatingman.Common</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
