@@ -11,10 +11,7 @@ namespace Floatingman.Common.Extensions
   public static class DumpExtensions
   {
     public static Formatting JsonFormatting = Formatting.Indented;
-    public static void AsJson(this object value)
-    {
-      AsJson(value, Console.WriteLine);
-    }
+    public static void AsJson(this object value) => AsJson(value, Console.WriteLine);
 
     public static void AsJson(this object value, Action<object> output)
     {
@@ -35,11 +32,13 @@ namespace Floatingman.Common.Extensions
 
       output(JsonConvert.SerializeObject(getValueType(outValue, type), JsonFormatting));
     }
-    public static void AsYaml(this object obj)
+
+    public static void AsYaml(this object value)=> AsYaml(value, Console.WriteLine);
+
+    public static void AsYaml(this object value,Action<object> output)
     {
       var serializer = new SerializerBuilder().Build();
-      var yaml = serializer.Serialize(obj);
-      Console.Write(yaml);
+      output( serializer.Serialize(value));
     }
   }
 }

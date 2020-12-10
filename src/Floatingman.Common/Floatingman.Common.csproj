@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Floatingman.Common</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>Walt Speelman</Authors>
     <Company>Floatingman</Company>
     <CopyRight>(c) 2020 Floatingman IT Consulting</CopyRight>
