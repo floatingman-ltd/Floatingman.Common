@@ -13,7 +13,7 @@ namespace Floatingman.Common.Extensions
     public static Formatting JsonFormatting = Formatting.Indented;
     public static void AsJson(this object value) => AsJson(value, Console.WriteLine);
 
-    public static void AsJson(this object value, Action<object> output)
+    public static void AsJson(this object value, Action<string> output)
     {
       object getValueType(object value, Type type) => (value, type) switch
       {
@@ -35,7 +35,7 @@ namespace Floatingman.Common.Extensions
 
     public static void AsYaml(this object value)=> AsYaml(value, Console.WriteLine);
 
-    public static void AsYaml(this object value,Action<object> output)
+    public static void AsYaml(this object value,Action<string> output)
     {
       var serializer = new SerializerBuilder().Build();
       output( serializer.Serialize(value));

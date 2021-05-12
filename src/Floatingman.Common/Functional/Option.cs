@@ -1,25 +1,44 @@
+using System;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Floatingman.Common.Functional
 {
-  public struct Option<T> where T : notnull
-  {
-    public static Option<T> None => default;
-    public static Option<T> Some(T value) => new Option<T>(value);
-
-    readonly bool isSome;
-    readonly T value;
-
-    Option(T value)
+    public struct Option<T> where T : notnull
     {
-      this.value = value;
-      isSome = this.value is { };
+        private readonly bool isSome;
+        private readonly T value;
+
+        private Option(T value)
+        {
+            this.value = value;
+            isSome = this.value is { };
+        }
+
+        public static Option<T> None => default;
+
+        public static Option<T> Some(T value) => new Option<T>(value);
+
+        public bool IsSome([MaybeNullWhen(false)] out T value)
+        {
+            value = this.value;
+            return isSome;
+        }
+
+        public R Match<R>(Func<R> None, Func<T, R> Some)
+            => isSome ? Some(value) : None();
+
+        // sample
+        //string greet(Option<string> greetee) =>
+        //    greetee.Match(
+        //        None: () => "Who?",
+        //        Some: (name) => $"Ahh, hello {name}");
     }
 
-    public bool IsSome([MaybeNullWhen(false)] out T value)
+    public static class OptionExtensions
     {
-      value = this.value;
-      return isSome;
+        public static Option<R> Map<T, R>(this Option<T> option, Func<T, R> f)
+            => option.Match(
+                () => Option<R>.None,
+                (t) => Option<R>.Some(f(t)));
     }
-  }
 }

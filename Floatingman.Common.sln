@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common", "Floatingman.Common\Floatingman.Common.csproj", "{FBF59430-4AAC-4BB4-965E-0DC399F1CA8B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common", "src\Floatingman.Common\Floatingman.Common.csproj", "{FBF59430-4AAC-4BB4-965E-0DC399F1CA8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common.xUnit", "Floatingman.Common.xUnit\Floatingman.Common.xUnit.csproj", "{DBDAAC1C-1354-4A67-9CB7-6153FFBD017B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common.xUnit", "src\Floatingman.Common.xUnit\Floatingman.Common.xUnit.csproj", "{DBDAAC1C-1354-4A67-9CB7-6153FFBD017B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
