@@ -27,11 +27,6 @@ namespace Floatingman.Common.Functional
         public R Match<R>(Func<R> None, Func<T, R> Some)
             => isSome ? Some(value) : None();
 
-        // sample
-        //string greet(Option<string> greetee) =>
-        //    greetee.Match(
-        //        None: () => "Who?",
-        //        Some: (name) => $"Ahh, hello {name}");
     }
 
     public static class OptionExtensions
