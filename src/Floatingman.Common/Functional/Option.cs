@@ -36,8 +36,13 @@ namespace Floatingman.Common.Functional
 
     public static class OptionExtensions
     {
-        public static Option<R> Map<T, R>(this Option<T> option, Func<T, R> f)
+        public static Option<R> Bind<T, R>(this Option<T> option, Func<T, Option<R>> f)
             => option.Match(
+                () => Option<R>.None,
+                (t) => f(t));
+
+        public static Option<R> Map<T, R>(this Option<T> option, Func<T, R> f)
+                    => option.Match(
                 () => Option<R>.None,
                 (t) => Option<R>.Some(f(t)));
     }
