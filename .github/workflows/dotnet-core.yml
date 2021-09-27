@@ -44,13 +44,13 @@ jobs:
         versionSpec: '5.x'
     - name: Determine Version
       uses: gittools/actions/gitversion/execute@v0.9.7
-    - name: Display GitVersion outputs
-      run: |
-        echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
-        echo "NuGetVersion: ${{ steps.gitversion.outputs.nuGetVersion }}"
-        echo "NuGetPreReleaseTagV2: ${{ steps.gitversion.outputs.nuGetPreReleaseTagV2 }}"
-        echo "NuGetPreReleaseTag: ${{ steps.gitversion.outputs.nuGetPreReleaseTag }}"
-        echo "VersionSourceSha: ${{ steps.gitversion.outputs.versionSourceSha }}"
+    # - name: Display GitVersion outputs
+    #   run: |
+    #     echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
+    #     echo "NuGetVersion: ${{ steps.gitversion.outputs.nuGetVersion }}"
+    #     echo "NuGetPreReleaseTagV2: ${{ steps.gitversion.outputs.nuGetPreReleaseTagV2 }}"
+    #     echo "NuGetPreReleaseTag: ${{ steps.gitversion.outputs.nuGetPreReleaseTag }}"
+    #     echo "VersionSourceSha: ${{ steps.gitversion.outputs.versionSourceSha }}"
       # Publish
     - name: publish on version change
       id: publish_nuget
