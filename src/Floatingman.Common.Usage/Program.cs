@@ -10,12 +10,13 @@ namespace Floatingman.Common.Usage
             Option_Match();
         }
 
-        static void Option_Match()
-        {
-            string greet(Option<string> greetee) =>
+        static void Option_Match(){
+            greet(Option<string>.None);
+        }
+
+        static string greet(Option<string> greetee) =>
                greetee.Match(
                    None: () => "Who?",
                    Some: (name) => $"Ahh, hello {name}");
-        }
     }
 }
