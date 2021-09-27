@@ -3,14 +3,16 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <PackageId>Floatingman.Common</PackageId>
-    <Version>0.0.7</Version>
     <Authors>Walt Speelman</Authors>
     <Company>Floatingman</Company>
     <CopyRight>(c) 2021 Floatingman IT Consulting</CopyRight>
     <PackageLicenseExpression>WTFPL</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/64-Code-Amusements/Floatingman.Common</RepositoryUrl>
+      <!--
+    <Version>0.0.7</Version>
     <AssemblyVersion>0.0.7.0</AssemblyVersion>
     <FileVersion>0.0.7.0</FileVersion>
+      -->
   </PropertyGroup>
 
   <ItemGroup>
