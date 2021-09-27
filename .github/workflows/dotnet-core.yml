@@ -3,9 +3,9 @@ name: .NET Core
 on:
   workflow_dispatch:
   push:
-    branches: [ root ]
+    branches: [ main ]
   pull_request:
-    branches: [ root ]
+    branches: [ main ]
 
 jobs:
   build:
