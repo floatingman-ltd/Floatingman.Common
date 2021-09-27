@@ -35,54 +35,58 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v0.9.7
-      with:
-        versionSpec: '5.x'
-    - name: Determine Version
-      uses: gittools/actions/gitversion/execute@v0.9.7
-    # - name: Display GitVersion outputs
-    #   run: |
-    #     echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
-    #     echo "NuGetVersion: ${{ steps.gitversion.outputs.nuGetVersion }}"
-    #     echo "NuGetPreReleaseTagV2: ${{ steps.gitversion.outputs.nuGetPreReleaseTagV2 }}"
-    #     echo "NuGetPreReleaseTag: ${{ steps.gitversion.outputs.nuGetPreReleaseTag }}"
-    #     echo "VersionSourceSha: ${{ steps.gitversion.outputs.versionSourceSha }}"
-      # Publish
-    - name: publish on version change
-      id: publish_nuget
-      uses: rohith/publish-nuget@v2
-      with:
-        # Filepath of the project to be packaged, relative to root of repository
-        PROJECT_FILE_PATH: src/Floatingman.Common/Floatingman.Common.csproj
+    - name: Pack Nuget Package
+      run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj
+    # - name: Publish to Nuget
+    #   run: dotnet nuget push Floatingman.Common.0.1.0.nupkg --api-key ${{secrets.NUGET_API_KEY_V2}} 
+    # - name: Install GitVersion
+    #   uses: gittools/actions/gitversion/setup@v0.9.7
+    #   with:
+    #     versionSpec: '5.x'
+    # - name: Determine Version
+    #   uses: gittools/actions/gitversion/execute@v0.9.7
+    # # - name: Display GitVersion outputs
+    # #   run: |
+    # #     echo "NuGetVersionV2: ${{ steps.gitversion.outputs.nuGetVersionV2 }}"
+    # #     echo "NuGetVersion: ${{ steps.gitversion.outputs.nuGetVersion }}"
+    # #     echo "NuGetPreReleaseTagV2: ${{ steps.gitversion.outputs.nuGetPreReleaseTagV2 }}"
+    # #     echo "NuGetPreReleaseTag: ${{ steps.gitversion.outputs.nuGetPreReleaseTag }}"
+    # #     echo "VersionSourceSha: ${{ steps.gitversion.outputs.versionSourceSha }}"
+    #   # Publish
+    # - name: publish on version change
+    #   id: publish_nuget
+    #   uses: rohith/publish-nuget@v2
+    #   with:
+    #     # Filepath of the project to be packaged, relative to root of repository
+    #     PROJECT_FILE_PATH: src/Floatingman.Common/Floatingman.Common.csproj
         
-        # NuGet package id, used for version detection & defaults to project name
-        # PACKAGE_NAME: Core
+    #     # NuGet package id, used for version detection & defaults to project name
+    #     # PACKAGE_NAME: Core
         
-        # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-        # VERSION_FILE_PATH: Directory.Build.props
+    #     # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
+    #     # VERSION_FILE_PATH: Directory.Build.props
 
-        # Regex pattern to extract version info in a capturing group
-        # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
+    #     # Regex pattern to extract version info in a capturing group
+    #     # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
         
-        # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
-        VERSION_STATIC: 0.1.0
-        # ${{ steps.gitversion.outputs.nuGetVersion }}
+    #     # Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX
+    #     VERSION_STATIC: 0.1.0
+    #     # ${{ steps.gitversion.outputs.nuGetVersion }}
 
-        # Flag to toggle git tagging, enabled by default
-        # TAG_COMMIT: true
+    #     # Flag to toggle git tagging, enabled by default
+    #     # TAG_COMMIT: true
 
-        # Format of the git tag, [*] gets replaced with actual version
-        TAG_FORMAT: v*
+    #     # Format of the git tag, [*] gets replaced with actual version
+    #     TAG_FORMAT: v*
 
-        # API key to authenticate with NuGet server
-        NUGET_KEY: ${{secrets.NUGET_API_KEY_V2}}
+    #     # API key to authenticate with NuGet server
+    #     NUGET_KEY: ${{secrets.NUGET_API_KEY_V2}}
 
-        # NuGet server uri hosting the packages, defaults to https://api.nuget.org
-        # NUGET_SOURCE: https://api.nuget.org
+    #     # NuGet server uri hosting the packages, defaults to https://api.nuget.org
+    #     # NUGET_SOURCE: https://api.nuget.org
 
-        # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
-        # INCLUDE_SYMBOLS: false
+    #     # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+    #     # INCLUDE_SYMBOLS: false
