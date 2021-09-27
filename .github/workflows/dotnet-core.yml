@@ -41,7 +41,7 @@ jobs:
     - name: Pack Nuget Package
       run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj /p:PackageVersion=0.1.0
     - name: Publish to Nuget
-      run: dotnet nuget push src/Floatingman.Common/bin/Debug/Floatingman.Common.0.1.0.nupkg --api-key ${{secrets.NUGET_API_KEY_V2}} 
+      run: dotnet nuget push src/Floatingman.Common/bin/Debug/*.nupkg --api-key ${{secrets.NUGET_API_KEY_V2}} 
     # - name: Install GitVersion
     #   uses: gittools/actions/gitversion/setup@v0.9.7
     #   with:
