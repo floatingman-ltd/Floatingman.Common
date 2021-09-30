@@ -39,7 +39,9 @@ jobs:
       with:
         fetch-depth: 0
     - name: Pack Nuget Package
-      run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj
+      run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj --configuration Debug
+    - name: Publish nuget to Github
+      run: dotnet push src/Floatingman.Common/bin/Debug/Floatingman.Common.0.1.0.nupkg --api-key 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 --source "github"
     # - name: Publish to Nuget
     #   run: dotnet nuget push Floatingman.Common.0.1.0.nupkg --api-key ${{secrets.NUGET_API_KEY_V2}} 
     # - name: Install GitVersion
