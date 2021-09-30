@@ -39,7 +39,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Add nuget github source
-      run: dotnet nuget add source --username waltiam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/floatingman-ltd/index.json"
+      run: dotnet nuget add source --username waltiam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/waltiam/index.json"
     - name: Pack Nuget Package
       run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj --configuration Debug
     - name: Publish nuget to Github
