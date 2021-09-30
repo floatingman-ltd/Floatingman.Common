@@ -44,7 +44,7 @@ jobs:
       run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj --configuration Debug
     - name: Publish nuget to Github
       # run: dotnet nuget push src/Floatingman.Common/bin/Debug/Floatingman.Common.0.1.0.nupkg --api-key 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 --source "https://nuget.pkg.github.com/Floatingman-Ltd/index.json"
-      run: dotnet nuget push **/*.nupkg --api-key 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 --source "https://nuget.pkg.github.com/Floatingman-Ltd/index.json"
+      run: dotnet nuget push **/*.nupkg --api-key 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 --source "https://nuget.pkg.github.com/Floatingman-Ltd/index.json"
     # - name: Publish to Nuget
     #   run: dotnet nuget push Floatingman.Common.0.1.0.nupkg --api-key ${{secrets.NUGET_API_KEY_V2}} 
     # - name: Install GitVersion
