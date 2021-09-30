@@ -39,12 +39,12 @@ jobs:
       with:
         fetch-depth: 0
     - name: Add nuget github source
-      run: dotnet nuget add source --username waltiam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/Floatingman-Ltd/index.json"
+      run: dotnet nuget add source --username waltiam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/floatingman-ltd/index.json"
     - name: Pack Nuget Package
       run: dotnet pack src/Floatingman.Common/Floatingman.Common.csproj --configuration Debug
     - name: Publish nuget to Github
       # run: dotnet nuget push src/Floatingman.Common/bin/Debug/Floatingman.Common.0.1.0.nupkg --api-key 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 --source "https://nuget.pkg.github.com/Floatingman-Ltd/index.json"
-      run: dotnet nuget push **/*.nupkg --api-key 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 --source "https://nuget.pkg.github.com/Floatingman-Ltd/index.json"
+      run: dotnet nuget push **/*.nupkg --api-key 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 --source github
     # - name: Publish to Nuget
     #   run: dotnet nuget push Floatingman.Common.0.1.0.nupkg --api-key ${{secrets.NUGET_API_KEY_V2}} 
     # - name: Install GitVersion
