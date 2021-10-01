@@ -50,8 +50,8 @@ jobs:
     - name: Pack Nuget Package
       run: >
         dotnet pack src/Floatingman.Common/Floatingman.Common.csproj --configuration Debug 
-        /p:AssemblyVersion='${{ steps.gitversion.outputs.nuGetVersion }}' 
-        /p:FileVersion='${{ steps.gitversion.outputs.nuGetVersion }}' 
+        /p:AssemblyVersion='${{ steps.gitversion.outputs.assemblySemVer }}' 
+        /p:FileVersion='${{ steps.gitversion.outputs.assemblySemFileVer }}' 
         /p:InformationalVersion='${{ steps.gitversion.outputs.nuGetVersion }}' 
         /p:Version='${{ steps.gitversion.outputs.nuGetVersion }}'
     - name: Publish nuget to Github
