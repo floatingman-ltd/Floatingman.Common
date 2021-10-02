@@ -21,7 +21,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test and Coverage
       run: dotnet test src/Floatingman.Common.xUnit/Floatingman.Common.xUnit.csproj  /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
-      # run: dotnet test --no-restore --verbosity normal
     - name: Publish coverage report to coveralls.io   
       uses: coverallsapp/github-action@master   
       with:
