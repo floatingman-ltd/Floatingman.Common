@@ -1,4 +1,4 @@
-name: Push into Main
+name: push into main
 
 on:
   workflow_dispatch:

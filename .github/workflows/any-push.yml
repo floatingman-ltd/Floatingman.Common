@@ -1,10 +1,8 @@
-name: Push to non-main
+name: push to non-main
 
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [ main ]
-  pull_request:
+  push:
     branches-ignore: [ main ]
 
 jobs:

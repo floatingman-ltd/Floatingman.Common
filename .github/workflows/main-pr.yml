@@ -1,4 +1,4 @@
-name: PR into Main
+name: pull request into main
 
 on:
   workflow_dispatch:
