@@ -6,38 +6,14 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 5.0.400
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test and Coverage
-      run: dotnet test src/Floatingman.Common.xUnit/Floatingman.Common.xUnit.csproj  /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
-      # run: dotnet test --no-restore --verbosity normal
-    - name: Publish coverage report to coveralls.io   
-      uses: coverallsapp/github-action@master   
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }} 
-        path-to-lcov: src/Floatingman.Common.xUnit/TestResults/coverage.info 
-
-  publish:
+  nuget-publish:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 0
-    # - name: Add nuget github source
-    #   run: dotnet nuget add source --username waltiam --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/waltiam/index.json"
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.7
       with:
@@ -54,8 +30,8 @@ jobs:
         /p:Version='${{ steps.gitversion.outputs.nuGetVersion }}'
     - name: Publish nuget to Github
       run: >
-        dotnet nuget push **/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} 
-        --source "https://nuget.pkg.github.com/waltiam/index.json"
+        dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} 
+        --source "https://api.nuget.org/v3/index.json"
     - name: Display GitVersion outputs
       run: |
         echo "Major: ${{ steps.gitversion.outputs.major }}"
