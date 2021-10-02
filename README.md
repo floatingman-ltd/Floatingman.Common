@@ -1,7 +1,7 @@
 # Floatingman.Common
 
 - ![.NET Core](https://github.com/floatingman-ltd/Floatingman.Common/workflows/any-push.yml/badge.svg?branch=main)
-- [![Coverage Status](https://coveralls.io/repos/github/floatingman-ltd/Floatingman.Common/badge.svg?branch=root)](https://coveralls.io/github/floatingman-ltd/Floatingman.Common?branch=root)
+- [![Coverage Status](https://coveralls.io/repos/github/floatingman-ltd/Floatingman.Common/badge.svg?branch=main)](https://coveralls.io/github/floatingman-ltd/Floatingman.Common?branch=main)
 
 Utilities and thingies that I use all the time
 
