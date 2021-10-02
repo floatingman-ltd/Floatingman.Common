@@ -1,4 +1,4 @@
-name: .NET Core
+name: Push into Main
 
 on:
   workflow_dispatch:
