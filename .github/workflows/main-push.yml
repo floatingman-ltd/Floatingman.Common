@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  publish:
+  nuget-publish:
     runs-on: ubuntu-latest
 
     steps:
