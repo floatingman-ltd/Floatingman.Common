@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Floatingman.Common.Functional;
+
 namespace Floatingman.Common.Usage
 {
     class Program
