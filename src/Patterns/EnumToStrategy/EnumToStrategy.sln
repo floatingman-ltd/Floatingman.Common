@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheClasses", "ClassicEnum\TheClasses.csproj", "{5E6C08D5-DDBE-4559-AE8A-8F76A6DF5605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "~EnumToStrategy.Tests", "~EnumToStrategy.Tests\~EnumToStrategy.Tests.csproj", "{31920DF9-227E-4DA6-95A9-1A9BFC7A3791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheOtherClasses", "TheOtherClasses\TheOtherClasses.csproj", "{3D04FA0A-E3A1-4115-A45C-89FDE2A96A32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceClass", "ServiceClass\ServiceClass.csproj", "{436B2C56-E93A-4FA6-A0DF-FE3D80B5D139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceClassModule", "ServiceClassModule\ServiceClassModule.csproj", "{62A8289B-6D9E-4B7E-B25C-ABEB90DB15CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdderServiceHost", "ServiceHost\AdderServiceHost.csproj", "{CC30FC6A-119D-40C8-9CCD-248012AA5C31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DividerServiceHost", "DividerServiceHost\DividerServiceHost.csproj", "{B4003EB2-B871-4C26-A9DE-DCFEE2672C60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E6C08D5-DDBE-4559-AE8A-8F76A6DF5605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E6C08D5-DDBE-4559-AE8A-8F76A6DF5605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E6C08D5-DDBE-4559-AE8A-8F76A6DF5605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E6C08D5-DDBE-4559-AE8A-8F76A6DF5605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31920DF9-227E-4DA6-95A9-1A9BFC7A3791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31920DF9-227E-4DA6-95A9-1A9BFC7A3791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31920DF9-227E-4DA6-95A9-1A9BFC7A3791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31920DF9-227E-4DA6-95A9-1A9BFC7A3791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D04FA0A-E3A1-4115-A45C-89FDE2A96A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D04FA0A-E3A1-4115-A45C-89FDE2A96A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D04FA0A-E3A1-4115-A45C-89FDE2A96A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D04FA0A-E3A1-4115-A45C-89FDE2A96A32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{436B2C56-E93A-4FA6-A0DF-FE3D80B5D139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436B2C56-E93A-4FA6-A0DF-FE3D80B5D139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436B2C56-E93A-4FA6-A0DF-FE3D80B5D139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436B2C56-E93A-4FA6-A0DF-FE3D80B5D139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62A8289B-6D9E-4B7E-B25C-ABEB90DB15CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62A8289B-6D9E-4B7E-B25C-ABEB90DB15CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62A8289B-6D9E-4B7E-B25C-ABEB90DB15CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62A8289B-6D9E-4B7E-B25C-ABEB90DB15CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC30FC6A-119D-40C8-9CCD-248012AA5C31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC30FC6A-119D-40C8-9CCD-248012AA5C31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC30FC6A-119D-40C8-9CCD-248012AA5C31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC30FC6A-119D-40C8-9CCD-248012AA5C31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4003EB2-B871-4C26-A9DE-DCFEE2672C60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4003EB2-B871-4C26-A9DE-DCFEE2672C60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4003EB2-B871-4C26-A9DE-DCFEE2672C60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4003EB2-B871-4C26-A9DE-DCFEE2672C60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

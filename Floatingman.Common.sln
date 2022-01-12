@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common", "src\F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common.xUnit", "src\Floatingman.Common.xUnit\Floatingman.Common.xUnit.csproj", "{DBDAAC1C-1354-4A67-9CB7-6153FFBD017B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0E4C089B-17CC-4CE0-983A-D660814AC603}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Floatingman.Common.Usage", "src\Floatingman.Common.Usage\Floatingman.Common.Usage.csproj", "{4505760D-98AD-4B19-877E-C0E79CDE04CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,5 +48,20 @@ Global
 		{DBDAAC1C-1354-4A67-9CB7-6153FFBD017B}.Release|x64.Build.0 = Release|Any CPU
 		{DBDAAC1C-1354-4A67-9CB7-6153FFBD017B}.Release|x86.ActiveCfg = Release|Any CPU
 		{DBDAAC1C-1354-4A67-9CB7-6153FFBD017B}.Release|x86.Build.0 = Release|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Debug|x64.Build.0 = Debug|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Debug|x86.Build.0 = Debug|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Release|x64.ActiveCfg = Release|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Release|x64.Build.0 = Release|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Release|x86.ActiveCfg = Release|Any CPU
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4505760D-98AD-4B19-877E-C0E79CDE04CD} = {0E4C089B-17CC-4CE0-983A-D660814AC603}
 	EndGlobalSection
 EndGlobal
