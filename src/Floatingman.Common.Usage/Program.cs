@@ -1,7 +1,9 @@
 ﻿using System;
-
 using Floatingman.Common.Functional;
 
+using Unit = System.ValueTuple;
+
+using static Floatingman.Common.Functional.Functional;
 namespace Floatingman.Common.Usage
 {
     class Program
@@ -12,8 +14,9 @@ namespace Floatingman.Common.Usage
             Option_Match();
         }
 
-        static void Option_Match(){
-            greet(Option<string>.None);
+        static void Option_Match()
+        {
+            greet(None);
         }
 
         static string greet(Option<string> greetee) =>
