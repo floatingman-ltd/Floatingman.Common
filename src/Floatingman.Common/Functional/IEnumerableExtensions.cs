@@ -19,5 +19,8 @@ namespace Floatingman.Common.Functional
                 foreach (R r in f(t))
                     yield return r;
         }
+
+        public static IEnumerable<R> Bind<T, R>(this IEnumerable<T> l, Func<T, Option<R>> f) => l.Bind(t => f(t).AsEnumerable());
+
     }
 }
