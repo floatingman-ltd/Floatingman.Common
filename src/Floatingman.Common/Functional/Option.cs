@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unit = System.ValueTuple;
 namespace Floatingman.Common.Functional
 {
@@ -10,16 +11,15 @@ namespace Floatingman.Common.Functional
         public static Option.None None => Option.None.Default;
     }
 
-    public struct Option<T>
-     where T : notnull
+    public struct Option<T> where T : notnull
     {
-        readonly bool isSome;
-        readonly T value;
+        private readonly bool _isSome;
+        private readonly T _value;
 
         private Option(T value)
         {
-            isSome = true;
-            this.value = value;
+            _isSome = true;
+            _value = value;
         }
 
         // converters
@@ -28,7 +28,11 @@ namespace Floatingman.Common.Functional
 
         public static implicit operator Option<T>(T value) => value == null ? None : Some(value);
 
-        public R Match<R>(Func<R> None, Func<T, R> Some) => isSome ? Some(value) : None();
+        public R Match<R>(Func<R> None, Func<T, R> Some) => _isSome ? Some(_value) : None();
+        public IEnumerable<T> AsEnumerable()
+        {
+            if (_isSome) yield return _value;
+        }
     }
 
     namespace Option
@@ -66,6 +70,10 @@ namespace Floatingman.Common.Functional
             => option.Match(
                 () => None,
                 (t) => f(t));
+
+        public static IEnumerable<R> Bind<T, R>
+            (this Option<T> o, Func<T, IEnumerable<R>> f)
+            => o.AsEnumerable().Bind(f);
     }
 
 }
