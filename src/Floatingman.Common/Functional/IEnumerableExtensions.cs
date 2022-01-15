@@ -8,7 +8,7 @@ using Unit = System.ValueTuple;
 namespace Floatingman.Common.Functional
 {
 
-    public static class IENumerableExtensions
+    public static class IEnumerableExtensions
     {
         public static IEnumerable<R> Map<T, R>(this IEnumerable<T> l, Func<T, R> f) => l.Select(x => f(x));
         public static IEnumerable<Unit> ForEach<T>(this IEnumerable<T> l, Action<T> f) => l.Map(f.ToFunc()).ToImmutableList();
