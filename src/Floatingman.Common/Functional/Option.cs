@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using Unit = System.ValueTuple;
 namespace Floatingman.Common.Functional
 {
@@ -9,6 +10,8 @@ namespace Floatingman.Common.Functional
     {
         public static Option<T> Some<T>(T value) => new Option.Some<T>(value);
         public static Option.None None => Option.None.Default;
+        public static IEnumerable<T> List<T>(params T[] items) => items.ToImmutableList();
+
     }
 
     public struct Option<T> where T : notnull
@@ -76,6 +79,11 @@ namespace Floatingman.Common.Functional
             => opt.Match(
                 () => None,
                 (t) => Some(f(t)));
+
+        public static Option<T> Where<T>(this Option<T> opt, Func<T, bool> predicate)
+            => opt.Match(
+                () => None,
+                (t) => predicate(t) ? opt : None);
 
     }
 
