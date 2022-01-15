@@ -55,25 +55,28 @@ namespace Floatingman.Common.Functional
 
     public static class OptionExtensions
     {
-        public static Option<R> Map<T, R>(this Option.None _, Func<T, R> f) => None;
-
-        public static Option<R> Map<T, R>(this Option.Some<T> some, Func<T, R> f) => Some(f(some.Value));
-
-        public static Option<R> Map<T, R>
-            (this Option<T> option, Func<T, R> f)
-            => option.Match(
-                () => None,
-                (t) => Some(f(t)));
-
-        public static Option<R> Bind<T, R>
-            (this Option<T> option, Func<T, Option<R>> f)
-            => option.Match(
+        public static Option<R> Bind<T, R>(this Option<T> opt, Func<T, Option<R>> f)
+            => opt.Match(
                 () => None,
                 (t) => f(t));
 
-        public static IEnumerable<R> Bind<T, R>
-            (this Option<T> o, Func<T, IEnumerable<R>> f)
-            => o.AsEnumerable().Bind(f);
+        public static IEnumerable<R> Bind<T, R>(this Option<T> opt, Func<T, IEnumerable<R>> f)
+            => opt.AsEnumerable().Bind(f);
+
+        public static Option<Unit> ForEach<T>(this Option<T> opt, Action<T> f)
+            => Map(opt, f.ToFunc());
+
+        public static Option<R> Map<T, R>(this Option.None _, Func<T, R> f)
+            => None;
+
+        public static Option<R> Map<T, R>(this Option.Some<T> some, Func<T, R> f)
+            => Some(f(some.Value));
+
+        public static Option<R> Map<T, R>(this Option<T> opt, Func<T, R> f)
+            => opt.Match(
+                () => None,
+                (t) => Some(f(t)));
+
     }
 
 }
