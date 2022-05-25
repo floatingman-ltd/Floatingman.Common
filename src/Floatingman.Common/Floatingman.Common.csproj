@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+<TargetFramework>net6.0</TargetFramework>
     <PackageId>Floatingman.Common</PackageId>
     <Authors>Walt Speelman</Authors>
     <Company>Floatingman</Company>
