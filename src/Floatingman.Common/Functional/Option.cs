@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using Unit = System.ValueTuple;
+
 namespace Floatingman.Common.Functional
 {
     using static Functional;

@@ -4,6 +4,7 @@ using Floatingman.Common.Functional;
 using Unit = System.ValueTuple;
 
 using static Floatingman.Common.Functional.Functional;
+
 namespace Floatingman.Common.Usage
 {
     class Program
