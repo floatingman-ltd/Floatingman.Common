@@ -31,7 +31,7 @@ jobs:
     - name: Publish nuget to Github
       run: >
         dotnet nuget push **/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} 
-        --source "https://nuget.pkg.github.com/waltiam/index.json"
+        --source "https://nuget.pkg.github.com/floatingman-ltd/index.json"
     - name: Display GitVersion outputs
       run: |
         echo "Major: ${{ steps.gitversion.outputs.major }}"
