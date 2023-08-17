@@ -1,12 +1,9 @@
-﻿using System;
+﻿namespace Floatingman.Common.Extensions;
 
-namespace Floatingman.Common.Extensions
+public static class GuidExtensions
 {
-    public static class GuidExtensions
+    public static bool IsEmpty(this Guid value)
     {
-        public static bool IsEmpty(this Guid value)
-        {
-            return value == Guid.Empty;
-        }
+        return value == Guid.Empty;
     }
 }
