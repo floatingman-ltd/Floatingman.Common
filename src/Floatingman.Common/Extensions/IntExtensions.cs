@@ -1,11 +1,12 @@
 using Floatingman.Common.Functional;
 using static Floatingman.Common.Functional.Functional;
 
-namespace Floatingman.Common.Extensions
+namespace Floatingman.Common.Extensions;
+
+public static class IntExtensions
 {
-    public static class IntExtensions
+    public static Option<int> Parse(string s)
     {
-        public static Option<int> Parse(string s)
-            => int.TryParse(s, out var r) ? Some(r) : None;
+        return int.TryParse(s, out var r) ? Some(r) : None;
     }
 }

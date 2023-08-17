@@ -1,12 +1,9 @@
-﻿using System;
+﻿namespace Floatingman.Common.Extensions;
 
-namespace Floatingman.Common.Extensions
+public static class TypeExtensions
 {
-    public static class TypeExtensions
+    public static bool IsTypeOf<T>(this Type type)
     {
-        public static bool IsTypeOf<T>(this Type type)
-        {
-            return typeof(T).IsAssignableFrom(type);
-        }
+        return typeof(T).IsAssignableFrom(type);
     }
 }
