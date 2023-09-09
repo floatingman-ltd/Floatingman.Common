@@ -22,7 +22,7 @@ This should trigger a linting, build, test and coverage check.
 
 #### Pull request to main
 
-This should trigger a publish to private nuget, this relese should be marked as prerelease.
+This should trigger a publish to private nuget, this release should be marked as prerelease.
 
 #### Push to main
 

@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
+using Floatingman.Common.Functional.Option;
 using Unit = System.ValueTuple;
 
 namespace Floatingman.Common.Functional
@@ -9,10 +8,17 @@ namespace Floatingman.Common.Functional
 
     public static partial class Functional
     {
-        public static Option<T> Some<T>(T value) => new Option.Some<T>(value);
-        public static Option.None None => Option.None.Default;
-        public static IEnumerable<T> List<T>(params T[] items) => items.ToImmutableList();
+        public static None None => None.Default;
 
+        public static Option<T> Some<T>(T value)
+        {
+            return new Some<T>(value);
+        }
+
+        public static IEnumerable<T> List<T>(params T[] items)
+        {
+            return items.ToImmutableList();
+        }
     }
 
     public struct Option<T> where T : notnull
@@ -27,12 +33,26 @@ namespace Floatingman.Common.Functional
         }
 
         // converters
-        public static implicit operator Option<T>(Option.None _) => new Option<T>();
-        public static implicit operator Option<T>(Option.Some<T> some) => new Option<T>(some.Value);
+        public static implicit operator Option<T>(None _)
+        {
+            return new Option<T>();
+        }
 
-        public static implicit operator Option<T>(T value) => value == null ? None : Some(value);
+        public static implicit operator Option<T>(Some<T> some)
+        {
+            return new Option<T>(some.Value);
+        }
 
-        public R Match<R>(Func<R> None, Func<T, R> Some) => _isSome ? Some(_value) : None();
+        public static implicit operator Option<T>(T value)
+        {
+            return value == null ? None : Some(value);
+        }
+
+        public R Match<R>(Func<R> None, Func<T, R> Some)
+        {
+            return _isSome ? Some(_value) : None();
+        }
+
         public IEnumerable<T> AsEnumerable()
         {
             if (_isSome) yield return _value;
@@ -43,7 +63,7 @@ namespace Floatingman.Common.Functional
     {
         public struct None
         {
-            internal static readonly None Default = new None();
+            internal static readonly None Default = new();
         }
 
         public struct Some<T> where T : notnull
@@ -60,32 +80,44 @@ namespace Floatingman.Common.Functional
     public static class OptionExtensions
     {
         public static Option<R> Bind<T, R>(this Option<T> opt, Func<T, Option<R>> f)
-            => opt.Match(
+        {
+            return opt.Match(
                 () => None,
-                (t) => f(t));
+                t => f(t));
+        }
 
         public static IEnumerable<R> Bind<T, R>(this Option<T> opt, Func<T, IEnumerable<R>> f)
-            => opt.AsEnumerable().Bind(f);
+        {
+            return opt.AsEnumerable().Bind(f);
+        }
 
         public static Option<Unit> ForEach<T>(this Option<T> opt, Action<T> f)
-            => Map(opt, f.ToFunc());
+        {
+            return Map(opt, f.ToFunc());
+        }
 
-        public static Option<R> Map<T, R>(this Option.None _, Func<T, R> f)
-            => None;
+        public static Option<R> Map<T, R>(this None _, Func<T, R> f)
+        {
+            return None;
+        }
 
-        public static Option<R> Map<T, R>(this Option.Some<T> some, Func<T, R> f)
-            => Some(f(some.Value));
+        public static Option<R> Map<T, R>(this Some<T> some, Func<T, R> f)
+        {
+            return Some(f(some.Value));
+        }
 
         public static Option<R> Map<T, R>(this Option<T> opt, Func<T, R> f)
-            => opt.Match(
+        {
+            return opt.Match(
                 () => None,
-                (t) => Some(f(t)));
+                t => Some(f(t)));
+        }
 
         public static Option<T> Where<T>(this Option<T> opt, Func<T, bool> predicate)
-            => opt.Match(
+        {
+            return opt.Match(
                 () => None,
-                (t) => predicate(t) ? opt : None);
-
+                t => predicate(t) ? opt : None);
+        }
     }
-
 }

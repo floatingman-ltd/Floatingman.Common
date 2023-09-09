@@ -1,8 +1,5 @@
-﻿using System;
+﻿namespace Floatingman.CommandLine.Plugins;
 
-namespace Floatingman.CommandLine.Plugins
+public class ImportAttribute : Attribute
 {
-    public class ImportAttribute : Attribute
-    {
-    }
 }

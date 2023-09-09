@@ -11,16 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
         fetch-depth: 0
+
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.7
       with:
         versionSpec: '5.x'
+
     - name: Determine Version
       id: gitversion
       uses: gittools/actions/gitversion/execute@v0.9.7
+
     - name: Pack Nuget Package
       run: >
         dotnet pack src/Floatingman.Common/Floatingman.Common.csproj --configuration Release 
@@ -28,7 +31,8 @@ jobs:
         /p:FileVersion='${{ steps.gitversion.outputs.assemblySemFileVer }}' 
         /p:InformationalVersion='${{ steps.gitversion.outputs.nuGetVersion }}' 
         /p:Version='${{ steps.gitversion.outputs.nuGetVersion }}'
-    - name: Publish nuget to Github
+
+    - name: Publish package to Nuget
       run: >
         dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} 
         --source "https://api.nuget.org/v3/index.json"

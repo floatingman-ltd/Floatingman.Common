@@ -1,12 +1,11 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Floatingman.Common.Extensions
+namespace Floatingman.Common.Extensions;
+
+public static class StringExtensions
 {
-    public static class StringExtensions
+    public static string ToKabobCase(this string str)
     {
-        public static string ToKabobCase(this string str)
-        {
-            return Regex.Replace(str, "[a-z][A-Z]", m => $"{m.Value[0]}-{m.Value[1]}");
-        }
+        return Regex.Replace(str, "[a-z][A-Z]", m => $"{m.Value[0]}-{m.Value[1]}");
     }
 }
